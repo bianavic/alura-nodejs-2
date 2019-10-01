@@ -15,7 +15,7 @@ module.exports = (app) => {
             passwordField: 'senha'
         },
         (email, senha, done) => {
-            const usuarioDao = new usuarioDao(db);
+            const usuarioDao = new UsuarioDao(db);
             usuarioDao.buscaPorEmail(email)
             .then(usuario => {
                 if (!usuario || senha != usuario.senha) {
@@ -49,9 +49,14 @@ module.exports = (app) => {
             return uuid()
         },
         resave: false,
-        saveUnitialized: false
+        saveUninitialized: false
     }));
 
     app.use(passport.initialize());
-    app.use(passport.session())
+    app.use(passport.session());
+
+    app.use(function (req, resp, next) {
+        req.passport = passport;
+        next()
+    })
 };

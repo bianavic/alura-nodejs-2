@@ -28,6 +28,7 @@ class BaseControlador {
         return function(req, resp, next) {
 
             // logica do login
+            // injecao de dependencia
             const passport = req.passport;
             passport.authenticate('local', (erro, usuario, info) => {
                 if (info) {
