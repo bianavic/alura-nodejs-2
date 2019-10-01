@@ -22,6 +22,10 @@ app.use(methodOverride(function (req, res) {
     }
 }));
 
+// adicao do modulo de sessao e autenticacao
+const sessaoAutenticacao = require('./sessao-autenticacao')
+sessaoAutenticacao(app);
+
 const rotas = require('../app/rotas/rotas');
 rotas(app);
 
