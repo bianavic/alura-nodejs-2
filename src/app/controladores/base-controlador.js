@@ -11,7 +11,7 @@ class BaseControlador {
     }
 
     home() {
-        return function(req, resp) {
+        return function (req, resp) {
             resp.marko(
                 templates.base.home
             );
@@ -19,13 +19,13 @@ class BaseControlador {
     }
 
     login() {
-        return function(req, resp) {
+        return function (req, resp) {
             resp.marko(templates.base.login);
         };
     }
 
     efetuaLogin() {
-        return function(req, resp, next) {
+        return function (req, resp, next) {
 
             // logica do login
             // injecao de dependencia

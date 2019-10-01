@@ -10,10 +10,10 @@ module.exports = (app) => {
     app.use(rotasLivro.autenticadas, function(req, resp, next) {
         if (req.isAuthenticated()) {
             next();
-    } else {
-        resp.redirect(BaseControlador.rotas().login);
-    }
-    })
+        } else {
+            resp.redirect(BaseControlador.rotas().login);
+        }
+    });
     
     app.get(rotasLivro.lista, livroControlador.lista());
 
